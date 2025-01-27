@@ -15,33 +15,32 @@ interface WrapperProps extends PropsWithChildren {
 export function Wrapper({ providedStyle, children }: WrapperProps) {
   return (
     <div
-      className={cls(
-        "w-full px-4 py-15 flex flex-col items-center",
-        providedStyle
-      )}
+      className={cls("w-full py-15 flex flex-col items-center", providedStyle)}
     >
       {children}
     </div>
   );
 }
 
-interface FormWithTileProps extends PropsWithChildren {
-  title: string;
+interface FormWithTitleProps extends PropsWithChildren {
+  title?: string;
   providedStyle?: string;
 }
-export function FormWithTile({
+export function FormWithTitle({
   title,
   providedStyle,
   children,
-}: FormWithTileProps) {
+}: FormWithTitleProps) {
   return (
     <div
       className={cls(
-        "w-full flex flex-col items-center space-y-4",
+        "w-full flex flex-col items-center space-y-6",
         providedStyle
       )}
     >
-      <div className="text-main-color text-16 font-weight-500">{title}</div>
+      {title && (
+        <div className="text-main-color text-17 font-weight-600">{title}</div>
+      )}
       {children}
     </div>
   );

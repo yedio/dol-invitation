@@ -2,19 +2,21 @@ import { CommonImage } from "@components/image/CommonImage";
 import Line from "@components/Line";
 import { info } from "@libs/client/InfoData";
 import { LineBreaker } from "@libs/client/Utility";
-import { FormWithTile, Wrapper } from "./common/Layout";
+import { FormWithTitle, Wrapper } from "./common/Layout";
 import { DateCounterLayout } from "@components/DateCounterLayout";
 import { CalendarCapture } from "@components/CalendarCapture";
+import MapLayout from "@components/MapLayout";
+import { Gallery } from "@components/Gallery";
 
 export default function ContentLayout() {
-  const { image, text, parent, location } = info;
+  const { image, text, parent, location, mapAddress } = info;
 
   return (
     <div className="w-full flex flex-col items-center">
       {/* 초대합니다 */}
       <Wrapper>
-        <FormWithTile title={"💌 초대합니다 💌"}>
-          <div className="w-full h-[300px] object-contain overflow-hidden">
+        <FormWithTitle title={"💌 초대합니다 💌"}>
+          <div className="w-full h-[240px] flex justify-center items-center overflow-hidden">
             <CommonImage src={image.content} />
           </div>
           <div className="text-16 text-center leading-[30px]">
@@ -24,43 +26,54 @@ export default function ContentLayout() {
           <p className="text-16 text-center">
             아빠 {parent.dad.name} · 엄마 {parent.mom.name}
           </p>
-        </FormWithTile>
+        </FormWithTitle>
         <p className="text-main-color text-16"></p>
       </Wrapper>
       {/* 돌잔치 안내 */}
       <Wrapper providedStyle="bg-[#f6f5f5]">
-        <FormWithTile title={"돌잔치 안내"}>
+        <FormWithTitle>
           <div className="flex flex-col items-center space-y-10">
-            <div className="flex flex-col space-y-4">
-              <p className="text-center text-gray-700">
-                {LineBreaker(`2025년 5월 24일 토요일 오후 6:30\n${location}`)}
-              </p>
+            <div className="flex flex-col space-y-7">
+              <div className="flex flex-col items-center space-y-1">
+                <p className="text-24 text-gray-700">2025.03.02</p>
+                <p className="text-16">일요일 오후 6시 30분</p>
+              </div>
               <div className="w-[320px] py-4 border-t border-b border-[#e8dfdf] flex justify-center">
                 <CalendarCapture date={info.date} />
               </div>
             </div>
-
             <DateCounterLayout date={info.date} name={info.baby.shortName} />
           </div>
-        </FormWithTile>
+        </FormWithTitle>
       </Wrapper>
       {/* 소중한 순간들 */}
       <Wrapper>
-        <FormWithTile title={"소중한 순간들 📸"}>
-          <div>갤러리</div>
-        </FormWithTile>
+        <FormWithTitle title={"소중한 순간들 📸"}>
+          <div className="px-4 w-full">
+            <Gallery images={image.zip} />
+          </div>
+        </FormWithTitle>
       </Wrapper>
       {/* 오시는 길 */}
-      <Wrapper>
-        <FormWithTile title={"오시는 길"}>
-          <div className="text-center text-18 leading-[30px]">
-            {LineBreaker(
-              "경기 용인시 처인구 명지로60번길 8-10\n광장프라자 6층\n플로렌스 파티하우스 용인점"
-            )}
-            <p>031-333-6114</p>
+      <Wrapper providedStyle="!px-0">
+        <FormWithTitle title={"오시는 길"}>
+          <div className="flex flex-col items-center space-y-3">
+            <div className="text-center text-18 leading-[30px]">
+              {LineBreaker(
+                "경기 용인시 처인구 명지로60번길 8-10\n광장프라자 6층, 플로렌스 파티하우스 용인점"
+              )}
+            </div>
+            <p className="text-16">☎️ 031-333-6114</p>
           </div>
-          <div>지도</div>
-          <div className="w-full flex flex-col items-center space-y-4">
+          <MapLayout
+            address={info.address}
+            mapAddress={{
+              kakao: mapAddress.kakao,
+              naver: mapAddress.naver,
+              tmap: mapAddress.tmap,
+            }}
+          />
+          <div className="w-full flex flex-col items-center space-y-4 px-4">
             <WayToComeForm
               title="🚌 버스 이용"
               descriptions={[
@@ -82,13 +95,13 @@ export default function ContentLayout() {
               ]}
             />
           </div>
-        </FormWithTile>
+        </FormWithTitle>
       </Wrapper>
       {/* 마음 전하실 곳 */}
       <Wrapper>
-        <FormWithTile title={"마음 전하실 곳"}>
+        <FormWithTitle title={"마음 전하실 곳"}>
           <div>아코디언</div>
-        </FormWithTile>
+        </FormWithTitle>
       </Wrapper>
     </div>
   );
