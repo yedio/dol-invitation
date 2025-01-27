@@ -1,5 +1,5 @@
 export const info = {
-  date: "2025.05.24",
+  date: "2025.03.02 18:30:00",
   time: "18:30",
   location: "플로렌스 파티하우스 용인점",
   baby: { name: "석연지", shortName: "연지" },

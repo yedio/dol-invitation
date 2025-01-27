@@ -3,6 +3,8 @@ import Line from "@components/Line";
 import { info } from "@libs/client/InfoData";
 import { LineBreaker } from "@libs/client/Utility";
 import { FormWithTile, Wrapper } from "./common/Layout";
+import { DateCounterLayout } from "@components/DateCounterLayout";
+import { CalendarCapture } from "@components/CalendarCapture";
 
 export default function ContentLayout() {
   const { image, text, parent, location } = info;
@@ -25,24 +27,21 @@ export default function ContentLayout() {
         </FormWithTile>
         <p className="text-main-color text-16"></p>
       </Wrapper>
-      {/* Save the Date */}
-      <Wrapper>
-        <FormWithTile title={"Save the Date"}>
-          <div></div>
-          <div>연지의 생일이 117일 남았습니다.</div>
-        </FormWithTile>
-      </Wrapper>
       {/* 돌잔치 안내 */}
-      <Wrapper>
+      <Wrapper providedStyle="bg-[#f6f5f5]">
         <FormWithTile title={"돌잔치 안내"}>
-          <p className="text-center text-gray-700">
-            {LineBreaker(`2025년 5월 24일 토요일 오후 6:30\n${location}`)}
-          </p>
-          <Line type={"short"} />
-          <div className="w-[300px] h-[300px] object-cover overflow-hidden">
-            <CommonImage src={image.content} />
+          <div className="flex flex-col items-center space-y-10">
+            <div className="flex flex-col space-y-4">
+              <p className="text-center text-gray-700">
+                {LineBreaker(`2025년 5월 24일 토요일 오후 6:30\n${location}`)}
+              </p>
+              <div className="w-[320px] py-4 border-t border-b border-[#e8dfdf] flex justify-center">
+                <CalendarCapture date={info.date} />
+              </div>
+            </div>
+
+            <DateCounterLayout date={info.date} name={info.baby.shortName} />
           </div>
-          <div>달력</div>
         </FormWithTile>
       </Wrapper>
       {/* 소중한 순간들 */}
