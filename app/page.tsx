@@ -1,9 +1,14 @@
-import Layout from "@/components/_page/common/Layout";
+import Layout from "@components/layout/common/Layout";
+import ContentLayout from "@components/layout/ContentLayout";
+import CoverLayout from "@components/layout/CoverLayout";
+import FooterLayout from "@components/layout/FooterLayout";
 
 export default function Home() {
   return (
     <Layout>
-      <div className="flex">init setting</div>
+      <CoverLayout />
+      <ContentLayout />
+      <FooterLayout />
     </Layout>
   );
 }
