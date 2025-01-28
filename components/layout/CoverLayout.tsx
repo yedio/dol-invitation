@@ -1,12 +1,22 @@
+"use client";
 import { ArcFrame } from "@components/ArcFrame";
 import Line from "@components/Line";
 import { info } from "@libs/client/InfoData";
+import { useEffect, useState } from "react";
 
 export default function CoverLayout() {
   const { image, baby, date, time, location } = info;
+  const [screenHeight, setScreenHeight] = useState("100vh");
+
+  useEffect(() => {
+    setScreenHeight(`${window.innerHeight}px`);
+  }, []);
 
   return (
-    <div className="relative w-full min-h-screen bg-cover-color flex flex-col items-center overflow-hidden">
+    <div
+      className="relative w-full bg-cover-color flex flex-col items-center overflow-hidden pb-15 "
+      // style={{ minHeight: screenHeight }}
+    >
       {/* Header */}
       <div className="w-full py-4 flex items-center space-x-2.5">
         <Line />
@@ -16,7 +26,7 @@ export default function CoverLayout() {
         <Line />
       </div>
       {/* Main Image Section */}
-      <div className="relative w-full flex flex-col items-center mt-[35%]">
+      <div className="relative w-full flex flex-col items-center mt-[10%]">
         <div className="text-center text-main-color text-[60px] font-serif absolute top-0 leading-[80px] left-1/2 transform -translate-x-1/2 -translate-y-4 whitespace-nowrap z-10 font-weight-700">
           happy
           <br />

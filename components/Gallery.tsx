@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cls } from "@libs/client/Utility";
 import { CommonImage } from "./image/CommonImage";
 import Slider from "react-slick";
@@ -32,6 +32,18 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
     afterChange: (index: number) => setCurrentIndex(index),
   };
 
+  useEffect(() => {
+    if (isFullScreen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isFullScreen]);
+
   return (
     <>
       <div className={cls("grid grid-cols-3 gap-2", providedStyle)}>
@@ -48,7 +60,7 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
       {isFullScreen && (
         <div className="fixed inset-0 z-20 bg-white flex flex-col items-center justify-center max-w-[440px] mx-auto h-full">
           <button
-            className="absolute top-4 right-4"
+            className="absolute top-3 right-4"
             onClick={() => setIsFullScreen(false)}
           >
             <CommonImage src="/img/icons/close.svg" width={20} />
@@ -57,10 +69,7 @@ export const Gallery = ({ images, providedStyle }: GalleryProps) => {
           <div className="w-full max-w-[440px]">
             <Slider {...settings}>
               {images.map((image, index) => (
-                <div
-                  key={index}
-                  className="flex justify-center items-center h-[80%]"
-                >
+                <div key={index} className="flex justify-center items-center">
                   <CommonImage
                     src={image}
                     providedStyle="max-h-full object-contain"

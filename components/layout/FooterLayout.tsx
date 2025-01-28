@@ -2,14 +2,12 @@
 import { CopyToClipBoard, LineBreaker } from "@libs/client/Utility";
 
 export default function FooterLayout() {
-  // const { image, text, parent, location } = info;
-
   return (
     <div className="py-8 w-full flex flex-col items-center bg-gray-100 space-y-5">
       <div className="flex flex-col items-center space-y-1">
         {/* <div className="font-sans">카카오톡 공유하기</div> */}
         <div
-          className="cursor-pointer"
+          className="cursor-pointer text-15"
           onClick={() => CopyToClipBoard(window.location.href)}
         >
           링크주소 복사하기

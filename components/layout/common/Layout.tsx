@@ -1,3 +1,4 @@
+"use client";
 import { cls } from "@libs/client/Utility";
 import { PropsWithChildren } from "react";
 

@@ -1,3 +1,4 @@
+"use client";
 import { CommonImage } from "@components/image/CommonImage";
 import Line from "@components/Line";
 import { info } from "@libs/client/InfoData";

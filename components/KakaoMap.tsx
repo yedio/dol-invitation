@@ -55,8 +55,6 @@ export default function KakaoMap({ address, providedStyle }: KakaoMapProps) {
     };
 
     mapScript.addEventListener("load", onLoadKakaoMap);
-
-    console.log("loaded22");
   }, []);
 
   return <div id="map" className={cls("w-full h-[250px] bg-grey-40")} />;
