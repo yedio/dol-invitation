@@ -7,6 +7,7 @@ import { DateCounterLayout } from "@components/DateCounterLayout";
 import { CalendarCapture } from "@components/CalendarCapture";
 import MapLayout from "@components/MapLayout";
 import { Gallery } from "@components/Gallery";
+import { AccordionAccountLayout } from "@components/AccordionAccountLayout";
 
 export default function ContentLayout() {
   const { image, text, parent, location, mapAddress } = info;
@@ -93,6 +94,7 @@ export default function ContentLayout() {
                 "J1 주차타워 주차가능 (경기도 용인시 처인구 역북동 757)",
                 "2시간 무료주차, 매장까지 도보1~2분거리",
               ]}
+              img={"/img/etc/parking.jpg"}
             />
           </div>
         </FormWithTitle>
@@ -100,7 +102,20 @@ export default function ContentLayout() {
       {/* 마음 전하실 곳 */}
       <Wrapper>
         <FormWithTitle title={"마음 전하실 곳"}>
-          <div>아코디언</div>
+          <div className="flex flex-col space-y-2 w-[300px]">
+            <AccordionAccountLayout
+              title="아빠 계좌번호"
+              accountHolder={parent.dad.accountHolder}
+              bankName={parent.dad.bankName}
+              account={parent.dad.accountNumber}
+            />
+            <AccordionAccountLayout
+              title="엄마 계좌번호"
+              accountHolder={parent.mom.accountHolder}
+              bankName={parent.mom.bankName}
+              account={parent.mom.accountNumber}
+            />
+          </div>
         </FormWithTitle>
       </Wrapper>
     </div>
@@ -110,8 +125,13 @@ export default function ContentLayout() {
 interface WayToComeFormProps {
   title: string;
   descriptions: string[];
+  img?: string;
 }
-export function WayToComeForm({ title, descriptions }: WayToComeFormProps) {
+export function WayToComeForm({
+  title,
+  descriptions,
+  img,
+}: WayToComeFormProps) {
   return (
     <div className="w-full flex flex-col space-y-2">
       <div className="text-gray-500">{title}</div>
@@ -122,6 +142,7 @@ export function WayToComeForm({ title, descriptions }: WayToComeFormProps) {
           </div>
         ))}
       </div>
+      {img && <CommonImage src={img} />}
     </div>
   );
 }

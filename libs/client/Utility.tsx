@@ -44,3 +44,16 @@ export const HighlightKeyword = (text?: string, keyword?: string) => {
     </span>
   );
 };
+
+//복사
+export async function CopyToClipBoard(text: string, successMessage?: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+    console.log("Text copied to clipboard");
+    alert(successMessage || "클립보드에 복사되었습니다.");
+    return true;
+  } catch (error) {
+    console.error("Failed to copy text to clipboard:", error);
+    return false;
+  }
+}

@@ -55,3 +55,16 @@ body {
   color: white !important;
   border-radius: 100% !important;
 }
+
+.slick-dots > li {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.slick-slide {
+  outline: none !important;
+}
+
+div:focus-visible {
+  outline: none; /* 마우스 클릭 시 효과 제거 */
+}

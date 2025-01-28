@@ -10,8 +10,18 @@ export const info = {
   location: "플로렌스 파티하우스 용인점",
   baby: { name: "석연지", shortName: "연지" },
   parent: {
-    mom: { name: "박주영" },
-    dad: { name: "석재호" },
+    mom: {
+      name: "박주영",
+      bankName: "우리은행",
+      accountNumber: "123456-78-111111",
+      accountHolder: "박주영",
+    },
+    dad: {
+      name: "석재호",
+      bankName: "국민은행",
+      accountNumber: "123456-78-901234",
+      accountHolder: "석재호",
+    },
   },
   image: {
     cover: "/img/baby/cover.jpg",
