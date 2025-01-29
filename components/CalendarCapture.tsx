@@ -41,7 +41,8 @@ export const CalendarCapture = ({
         tileClassName={({ date }) => {
           // 일요일만 특별 스타일 적용
           const isSunday = date.getDay() === 0;
-          if (isSunday) {
+
+          if (isSunday || date.getDate() === 3) {
             return "holiday";
           }
           return "";

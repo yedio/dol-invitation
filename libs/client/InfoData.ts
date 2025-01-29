@@ -15,12 +15,14 @@ export const info = {
       bankName: "우리은행",
       accountNumber: "123456-78-111111",
       accountHolder: "박주영",
+      phone: "010-7903-9498",
     },
     dad: {
       name: "석재호",
       bankName: "국민은행",
       accountNumber: "123456-78-901234",
       accountHolder: "석재호",
+      phone: "010-7904-9498",
     },
   },
   image: {
@@ -28,11 +30,11 @@ export const info = {
     content: "/img/baby/zip/zip1.jpg",
     zip: [
       "/img/baby/zip/zip1.jpg",
+      "/img/baby/zip/zip6.jpg",
       "/img/baby/zip/zip2.jpg",
       "/img/baby/zip/zip3.jpg",
       "/img/baby/zip/zip4.jpg",
       "/img/baby/zip/zip5.jpg",
-      "/img/baby/zip/zip1.jpg",
     ],
   },
   text: {

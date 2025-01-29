@@ -44,15 +44,15 @@ export default function CoverLayout() {
 
       {/* Footer Info Section */}
       <div className="mt-0 flex flex-col items-center text-main-color space-y-1">
-        <p className="text-18 font-weight-500">
+        <p className="text-18 font-weight-600">
           <span className="mx-2">✨</span>
           {baby.name}
           <span className="mx-2">✨</span>
         </p>
-        <p className="text-20">
+        <p className="text-20 font-weight-500">
           {date.split(" ")?.[0]} | {time}
         </p>
-        <p className="text-16">{location}</p>
+        <p className="text-16 font-weight-500">{location}</p>
       </div>
     </div>
   );

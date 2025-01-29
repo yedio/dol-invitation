@@ -15,6 +15,7 @@
 }
 
 body {
+  text-decoration: none !important;
   color: var(--foreground);
   background: var(--background);
   font-family: "Gyeonggi_Batang_Regular", sans-serif;
@@ -23,6 +24,20 @@ body {
 .react-calendar {
   background-color: transparent !important;
   border: none !important;
+  font-family: "Gyeonggi_Batang_Regular", sans-serif !important;
+  font-weight: 500;
+  font-size: 18px !important;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  font-family: "Gyeonggi_Batang_Regular", sans-serif !important;
+  font-weight: 600;
+  font-size: 15px !important;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none !important;
+  color: #444 !important;
 }
 
 .react-calendar__tile:disabled {
@@ -34,7 +49,7 @@ body {
   padding: 10px !important;
 }
 .react-calendar__tile.holiday {
-  color: hotpink !important;
+  color: #ff4d6d !important;
 }
 
 .react-calendar {

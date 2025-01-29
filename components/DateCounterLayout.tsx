@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { cls } from "@libs/client/Utility";
 
 interface DateCounterLayoutProps {
@@ -21,9 +21,13 @@ export const DateCounterLayout = ({
     seconds: 0,
   });
 
-  useEffect(() => {
-    const targetDate = new Date(date.replace(".", "-").replace(".", "-"));
+  const targetDate = useMemo(() => {
+    // date: 'YYYY.MM.DD' 형식을 'YYYY-MM-DD'로 변환
+    const [year, month, day] = date.split(".");
+    return new Date(`${year}-${month}-${day}`);
+  }, [date]);
 
+  useEffect(() => {
     const updateCountdown = () => {
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
@@ -58,10 +62,31 @@ export const DateCounterLayout = ({
         <div className="text-[#726265]">:</div>
         <DateCounterItem type={"SEC"} time={timeRemaining.seconds} />
       </div>
-      <div className="text-15s">
-        {name}의 생일이{" "}
-        <span className="text-main-color">{timeRemaining.days}일</span>{" "}
-        남았습니다.
+      <div className="text-16">
+        {(() => {
+          // formattedDate로 날짜 포맷을 'YYYY-MM-DD'로 변환
+          const formattedDate = targetDate.toISOString().split("T")[0];
+          const todayStr = new Date().toISOString().split("T")[0];
+
+          if (formattedDate === todayStr) {
+            return (
+              <>
+                {name}의 생일이 <span className="text-main-color">오늘</span>
+                입니다! 🎉
+              </>
+            );
+          } else if (formattedDate < todayStr) {
+            return `${name}의 생일이 지났습니다.`;
+          } else {
+            return (
+              <>
+                {name}의 생일이{" "}
+                <span className="text-main-color">{timeRemaining.days}일</span>{" "}
+                남았습니다.
+              </>
+            );
+          }
+        })()}
       </div>
     </div>
   );

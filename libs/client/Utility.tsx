@@ -57,3 +57,11 @@ export async function CopyToClipBoard(text: string, successMessage?: string) {
     return false;
   }
 }
+
+export const handleCall = (phoneNumber: string) => {
+  window.location.href = `tel:${phoneNumber}`;
+};
+
+export const handleMessage = (phoneNumber: string) => {
+  window.location.href = `sms:${phoneNumber}`;
+};
