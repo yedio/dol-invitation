@@ -5,7 +5,7 @@ export const info = {
   mapAddress: {
     kakao: "https://place.map.kakao.com/2102050583",
     naver: "https://naver.me/GgWIOokI",
-    tmap: "https://tmap.life/8e2cb517",
+    tmap: "https://tmap.life/ea2aaafd",
   },
   location: "플로렌스 파티하우스 용인점",
   baby: { name: "석연지", shortName: "연지" },
