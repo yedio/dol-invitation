@@ -52,10 +52,7 @@ body {
   color: #ff4d6d !important;
 }
 
-.react-calendar {
-  cursor: default !important;
-}
-.react-calendar > button {
+.react-calendar__tile {
   cursor: default !important;
 }
 
@@ -69,6 +66,12 @@ body {
   background: #444 !important;
   color: white !important;
   border-radius: 100% !important;
+}
+
+/* active인 경우 hover, focus 스타일 무효화 */
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background-color: #444 !important;
 }
 
 .slick-dots > li {
