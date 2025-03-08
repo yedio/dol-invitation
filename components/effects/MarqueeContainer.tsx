@@ -1,17 +1,21 @@
-import { CommonImage } from "@components/image/CommonImage";
-import { CopyToClipBoard } from "@libs/client/Utility";
+import { cls } from "@libs/client/Utility";
 
-interface CopyButtonProps {
-  copyText: string;
-  successMessage?: string;
+interface MarqueeContainerProps {
+  text: string;
+  providedStyle?: string;
 }
 
-export const CopyButton = ({
-  copyText,
-  successMessage = "복사하였습니다.",
-}: CopyButtonProps) => {
+export const MarqueeContainer = ({
+  text,
+  providedStyle,
+}: MarqueeContainerProps) => {
   return (
-    <div className="w-full py-2 bg-main-color overflow-hidden whitespace-nowrap">
+    <div
+      className={cls(
+        "w-full py-2 bg-main-color overflow-hidden whitespace-nowrap",
+        providedStyle
+      )}
+    >
       <div
         className="inline-block"
         style={{
@@ -26,7 +30,7 @@ export const CopyButton = ({
               key={index}
               className="text-white text-15 font-serif mx-5 font-weight-500"
             >
-              🎉 yeonz's 1st birthday 🎉
+              {text}
             </span>
           ))}
       </div>

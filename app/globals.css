@@ -21,6 +21,15 @@ body {
   font-family: "Gyeonggi_Batang_Regular", sans-serif;
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .react-calendar {
   background-color: transparent !important;
   border: none !important;
