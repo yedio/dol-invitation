@@ -37,7 +37,7 @@ export default function ContentLayout() {
           <div className="flex flex-col items-center space-y-10">
             <div className="flex flex-col space-y-7">
               <div className="flex flex-col items-center space-y-1">
-                <p className="text-24 text-gray-700">2025.03.02</p>
+                <p className="text-24 text-gray-700">2025.09.06</p>
                 <p className="text-16">일요일 오후 6시 30분</p>
               </div>
               <div className="w-[320px] py-4 border-t border-b border-[#e8dfdf] flex justify-center">

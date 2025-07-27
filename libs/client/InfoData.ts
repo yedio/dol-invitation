@@ -1,5 +1,5 @@
 export const info = {
-  date: "2025.03.02 18:30:00",
+  date: "2025.09.06 18:30:00",
   time: "18:30",
   address: "경기 용인시 처인구 명지로 60번길 8-10",
   mapAddress: {
